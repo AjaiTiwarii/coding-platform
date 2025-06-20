@@ -8,10 +8,4 @@ class DashboardConfig(AppConfig):
     name = 'apps.dashboard'
     verbose_name = 'Dashboard'
     
-    def ready(self):
-        """
-        Initialize dashboard app when Django starts [19]
-        """
-        # Import signal handlers for dashboard updates
-        # import apps.dashboard.signals
-        pass
+    

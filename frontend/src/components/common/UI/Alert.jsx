@@ -10,7 +10,6 @@ export const Alert = ({ type = 'info', children }) => {
     <div className={`p-4 rounded-md ${variants[type]}`}>
       <div className="flex items-center">
         <span className="flex-shrink-0">
-          {/* Add appropriate icons here */}
         </span>
         <div className="ml-3">
           {children}

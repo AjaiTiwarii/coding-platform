@@ -5,6 +5,3 @@ class SubmissionsConfig(AppConfig):
     name = 'apps.submissions'
     verbose_name = 'Submissions'
     
-    def ready(self):
-        # Import signal handlers
-        import apps.submissions.signals

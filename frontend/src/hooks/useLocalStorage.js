@@ -6,14 +6,13 @@ export const useLocalStorage = (key, initialValue) => {
       const item = window.localStorage.getItem(key)
       if (!item) return initialValue
 
-      // 🔐 Try parsing only if it's valid JSON, else return raw string
       try {
         return JSON.parse(item)
       } catch {
         return item
       }
     } catch (error) {
-      console.error(`❌ Error reading localStorage key "${key}":`, error)
+      console.error(` Error reading localStorage key "${key}":`, error)
       return initialValue
     }
   }
@@ -26,7 +25,7 @@ export const useLocalStorage = (key, initialValue) => {
       window.localStorage.setItem(key, valueToStore)
       setStoredValue(value)
     } catch (error) {
-      console.error(`❌ Error setting localStorage key "${key}":`, error)
+      console.error(` Error setting localStorage key "${key}":`, error)
     }
   }
 
@@ -43,7 +42,7 @@ export const useLocalStorage = (key, initialValue) => {
             }
           })
         } catch (error) {
-          console.error(`❌ Error handling storage event for "${key}":`, error)
+          console.error(`Error handling storage event for "${key}":`, error)
         }
       }
     }

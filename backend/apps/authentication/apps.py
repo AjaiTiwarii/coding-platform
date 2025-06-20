@@ -7,4 +7,5 @@ class AuthenticationConfig(AppConfig):
 
     def ready(self):
         # Import signal handlers
-        import apps.authentication.signals
+        # import apps.authentication.signals
+        pass

@@ -24,7 +24,7 @@ class CodeExecutionService:
         language = submission.language.name.lower()
         extension = submission.language.file_extension
 
-        logger.info(f"📄 Submitted code:\n{code}")
+        logger.info(f"Submitted code:\n{code}")
 
         test_cases = submission.problem.test_cases.all()
         passed = 0
@@ -39,14 +39,14 @@ class CodeExecutionService:
             status = 'RUNTIME_ERROR'
 
             try:
-                # 📝 Write code to temp file
+                # this writes code to temp file
                 with tempfile.NamedTemporaryFile(mode='w', suffix=f'.{extension}', delete=False) as code_file:
                     code_file.write(code)
                     code_file_path = code_file.name
 
                 logger.info(f"💾 Code written to: {code_file_path}")
 
-                # 🚀 Execute based on language
+                # Execute based on language
                 if language == 'python':
                     start_time = time.time()
                     result = subprocess.run(
@@ -69,7 +69,7 @@ class CodeExecutionService:
                         status = 'WRONG_ANSWER'
 
                 elif language == 'c++' or language == 'cpp':
-                    # 🧠 Compile
+                    # Compile
                     binary_path = code_file_path.replace(f".{extension}", "")
                     compile_proc = subprocess.run(
                         ['g++', code_file_path, '-o', binary_path],
@@ -81,7 +81,7 @@ class CodeExecutionService:
                         status = 'COMPILATION_ERROR'
                         output = ''
                     else:
-                        # ▶️ Run the compiled binary
+                        # Run the compiled binary
                         start_time = time.time()
                         run_proc = subprocess.run(
                             [binary_path],
@@ -103,7 +103,7 @@ class CodeExecutionService:
                         else:
                             status = 'WRONG_ANSWER'
 
-                        # 🧹 Remove binary
+                        # Remove binary
                         if os.path.exists(binary_path):
                             os.remove(binary_path)
 
@@ -124,7 +124,7 @@ class CodeExecutionService:
                 stderr = str(e)
                 output = ''
 
-            # 🧾 Save result
+            # Save result
             TestCaseResult.objects.create(
                 submission=submission,
                 test_case=test_case,
@@ -138,11 +138,11 @@ class CodeExecutionService:
             test_statuses.append(status)
             total_time += exec_time
 
-            # 🧹 Cleanup code file
+            # Cleanup code file
             if os.path.exists(code_file_path):
                 os.remove(code_file_path)
 
-        # 🧠 Final verdict
+        # Final verdict
         submission.test_cases_passed = passed
         submission.total_test_cases = len(test_cases)
         submission.execution_time = total_time // len(test_cases) if test_cases else 0
@@ -165,4 +165,4 @@ class CodeExecutionService:
             submission.score = (passed / len(test_cases)) * 100
 
         submission.save()
-        logger.info(f"✅ Code execution done for submission {submission.id}. Status: {submission.status}")
+        logger.info(f"Code execution done for submission {submission.id}. Status: {submission.status}")

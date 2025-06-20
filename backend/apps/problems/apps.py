@@ -5,7 +5,4 @@ class ProblemsConfig(AppConfig):
     name = 'apps.problems'
     verbose_name = 'Problems'
     
-    def ready(self):
-        # Import any signals here if needed
-        # import apps.problems.signals
-        pass
+    

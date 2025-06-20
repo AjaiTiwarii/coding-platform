@@ -1,4 +1,3 @@
-# management/commands/setup_languages.py
 from django.core.management.base import BaseCommand
 from apps.submissions.models import Language
 

@@ -8,15 +8,6 @@ export const LoginPage = () => {
   const { user } = useAuth()
   const navigate = useNavigate()
 
-  // const didMount = useRef(false)
-
-  // useEffect(() => {
-  //   if (didMount.current && user) {
-  //     navigate('/dashboard')
-  //   } else {
-  //     didMount.current = true
-  //   }
-  // }, [user, navigate])
 
   console.log("🔁 Rendering LoginPage, user =", user)
 
@@ -27,9 +18,3 @@ export const LoginPage = () => {
     </div>
   )
 }
-
-
-// export const LoginPage = () => {
-//   console.log("🔍 LoginPage is rendering")
-//   return <div style={{ fontSize: '2rem', color: 'green' }}>Login Page Works! <LoginForm /></div>
-// }

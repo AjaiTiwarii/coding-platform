@@ -1,4 +1,3 @@
-// src/components/common/ErrorBoundary.jsx
 import React from 'react'
 
 export class ErrorBoundary extends React.Component {

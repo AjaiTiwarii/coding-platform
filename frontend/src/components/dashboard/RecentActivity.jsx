@@ -1,5 +1,3 @@
-// import { formatDateTime } from '../utils/helpers'
-// import { getStatusColor } from '../utils/helpers'
 import { formatDateTime, getStatusColor } from '../../utils/helpers'
 
 export const RecentActivity = ({ activities }) => {

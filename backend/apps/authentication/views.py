@@ -11,7 +11,6 @@ from .serializers import UserSerializer, UserRegistrationSerializer
 def dashboard_data(request):
     user = request.user
 
-    # Replace with actual data later
     return Response({
         "message": f"Welcome {user.username}!",
         "stats": {
@@ -28,7 +27,16 @@ def register(request):
     serializer = UserRegistrationSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
+
+        # Auto login the user after registration
         refresh = RefreshToken.for_user(user)
+
+        # ✅ Authenticate and log in session (if you want session login)
+        from django.contrib.auth import login, authenticate
+        user = authenticate(email=user.email, password=request.data['password'])
+        if user:
+            login(request, user)
+
         return Response({
             'user': UserSerializer(user).data,
             'tokens': {
@@ -37,6 +45,7 @@ def register(request):
             }
         }, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -58,7 +67,6 @@ def login(request):
         })
     return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-# Add these to your existing views.py
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout(request):
@@ -70,6 +78,33 @@ def logout(request):
         return Response({'message': 'Successfully logged out'}, status=status.HTTP_200_OK)
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

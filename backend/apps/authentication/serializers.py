@@ -6,7 +6,7 @@ User = get_user_model()
 
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
-    refresh['user_id'] = user.id  # Critical!
+    refresh['user_id'] = user.id  
     refresh['username'] = user.username
     refresh['email'] = user.email
     return {
@@ -47,11 +47,15 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         if attrs['password'] != attrs['password_confirm']:
             raise serializers.ValidationError({"password": "Password fields didn't match."})
+
+        if User.objects.filter(username__iexact=attrs['username']).exists():
+            raise serializers.ValidationError({"username": "Username already exists."})
         
-        if User.objects.filter(email=attrs['email']).exists():
+        if User.objects.filter(email__iexact=attrs['email']).exists():
             raise serializers.ValidationError({"email": "Email already exists."})
-        
+
         return attrs
+
 
     def create(self, validated_data):
         validated_data.pop('password_confirm')

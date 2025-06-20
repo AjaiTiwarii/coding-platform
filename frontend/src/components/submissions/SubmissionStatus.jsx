@@ -13,7 +13,6 @@ export const SubmissionStatus = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      // await get(`/api/submissions/${id}/`)
       await get(`/submissions/${id}/`)
       setPollingCount(prev => prev + 1)
     }, 2000)

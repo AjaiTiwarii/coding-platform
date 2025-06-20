@@ -14,15 +14,6 @@ export const SUBMISSION_STATUS = {
   RUNTIME_ERROR: 'Runtime Error'
 }
 
-// export const API_ENDPOINTS = {
-//   PROBLEMS: '/api/problems/',
-//   SUBMISSIONS: '/api/submissions/',
-//   AUTH: {
-//     LOGIN: '/api/auth/login/',
-//     REGISTER: '/api/auth/register/',
-//     PROFILE: '/api/auth/profile/'
-//   }
-// }
 
 export const API_ENDPOINTS = {
   PROBLEMS: '/problems/',

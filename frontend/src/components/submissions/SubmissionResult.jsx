@@ -10,7 +10,6 @@ export const SubmissionResult = () => {
 
   useEffect(() => {
     const fetchSubmission = async () => {
-      // await get(`/api/submissions/${id}/`)
       await get(`/submissions/${id}/`)
     }
     fetchSubmission()
