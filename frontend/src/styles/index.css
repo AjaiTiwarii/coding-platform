@@ -1,0 +1,35 @@
+@import 'tailwind.css';
+@import 'components.css';
+
+/* Custom Font Faces */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Global Styles */
+body {
+  @apply bg-gray-50 text-gray-900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monaco Editor Overrides */
+.monaco-editor-wrapper {
+  @apply rounded-lg border border-gray-200 overflow-hidden;
+}
+
+/* Submission Status Badges */
+.submission-status {
+  @apply px-2 py-1 text-xs font-medium rounded-full;
+}
+
+/* Loader Animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.loader-spinner {
+  animation: spin 1s linear infinite;
+}
