@@ -1,0 +1,89 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+*.pyo
+*.pyc
+.mypy_cache/
+.coverage
+htmlcov/
+.pytest_cache/
+
+# === Django ===
+*.log
+*.sqlite3
+*.db
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+*.pot
+*.pyc
+
+# === Django Migrations (Keep __init__.py) ===
+**/migrations/*
+!**/migrations/__init__.py
+
+# === Celery & Unix files ===
+celerybeat-schedule
+*.pid
+*.sock
+
+# === React (Node.js) ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+frontend/.parcel-cache/
+frontend/.eslintcache
+frontend/.next/
+frontend/.turbo/
+
+# === Environment Variables ===
+.env
+.env.*
+!.env.example
+
+# === IDEs ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === Testing ===
+coverage.xml
+junit.xml
+
+# === Docker/Render Temp Files ===
+docker/*.pid
+docker/db_data/
+docker/logs/
+
+# === Scripts & Executables ===
+*.out
+*.exe
+*.o
+*.class
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# === Git related ===
+*.orig
+*.rej
