@@ -5,3 +5,5 @@ boto3==1.29.7
 setuptools
 django-filter
 django_extensions
+psycopg2-binary
+
