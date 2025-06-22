@@ -159,7 +159,6 @@ SIMPLE_JWT = {
     'VERIFYING_KEY': None,
     'AUTH_HEADER_TYPES': ('Bearer',),
 
-    # ✅ Add these two lines:
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
 }

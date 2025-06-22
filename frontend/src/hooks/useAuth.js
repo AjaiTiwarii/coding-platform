@@ -18,7 +18,7 @@ export const refreshToken = async () => {
     localStorage.setItem('authToken', newAccessToken);
     return newAccessToken;
   } catch (error) {
-    console.error('🔁 Refresh token failed:', error.response?.data || error);
+    console.error('Refresh token failed:', error.response?.data || error);
     throw error;
   }
 };
@@ -38,7 +38,7 @@ export const useAuth = () => {
           setUser(response.data);
           setError(null);
         } catch (err) {
-          console.error('❌ Failed to load profile:', err);
+          console.error('Failed to load profile:', err);
           setToken(null);
           setUser(null);
           setError('Session expired. Please login again.');

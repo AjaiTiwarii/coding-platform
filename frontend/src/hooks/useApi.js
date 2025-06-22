@@ -21,12 +21,12 @@ export const useApi = () => {
       const responseData = response.data
 
       // Debug log
-      console.log(`✅ [${method.toUpperCase()}] ${url} →`, responseData)
+      console.log(`[${method.toUpperCase()}] ${url} →`, responseData)
 
       setData(responseData)
       return responseData
     } catch (err) {
-      console.error(`❌ API ${method.toUpperCase()} ${url} failed`, err)
+      console.error(`API ${method.toUpperCase()} ${url} failed`, err)
       setError(err.response?.data || { message: 'API request failed' })
       throw err
     } finally {
