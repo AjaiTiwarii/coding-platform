@@ -1,8 +1,10 @@
-# backend/build.sh
 #!/bin/bash
 
-echo "📦 Collecting static files..."
-python manage.py collectstatic --noinput
+echo "📦 Installing dependencies..."
+pip install -r requirements.txt
 
 echo "🛠 Applying migrations..."
-python manage.py migrate
+python3 manage.py migrate
+
+echo "📁 Collecting static files..."
+python3 manage.py collectstatic --noinput
