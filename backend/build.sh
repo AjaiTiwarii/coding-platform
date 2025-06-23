@@ -4,7 +4,7 @@ echo "Installing production dependencies..."
 pip install -r requirements/production.txt
 
 echo "🛠 Applying database migrations..."
-python3 manage.py migrate
+python manage.py migrate
 
 echo "Collecting static files..."
-python3 manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
