@@ -54,5 +54,16 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+// ✅ Named utility exports for convenience
+export async function get(url, config = {}) {
+  const response = await api.get(url, config);
+  return response.data;
+}
 
+export async function post(url, data = {}, config = {}) {
+  const response = await api.post(url, data, config);
+  return response.data;
+}
+
+// ✅ Default export remains for full axios control
+export default api;
