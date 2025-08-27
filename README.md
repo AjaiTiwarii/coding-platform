@@ -109,16 +109,11 @@ npm run dev
 
 ## 🌐 Related READMEs
 
-- [`frontend/README.md`](./frontend/README.md) — React setup & scripts
-- [`backend/README.md`](./backend/README.md) — Django + Celery setup
+- [`frontend/frontend_readme.md`](./frontend/frontend_readme.md) — React setup & scripts
+- [`backend/backend_readme.md`](./backend/backend_readme.md) — Django + Celery setup
 
 ---
 
-## 👤 Author
-
-Built by [Ajay Tiwari](https://github.com/AjaiTiwarii)
-
----
 
 ## 📖 License
 
